@@ -17,10 +17,10 @@ Firstly, download the embedding files: [glove.6B.100d.txt](https://nlp.stanford.
 
 By default, the model eval our saved model (without BERT) on SemEval 2010 Task 1 Spanish dataset.
 
-python main.py  
+    python main.py  
 To train the model with other datasets:
 
-python main.py --mode=train --dataset=ontonotes --embedding_file=glove.6B.100d.txt
+    python main.py --mode=train --dataset=ontonotes --embedding_file=glove.6B.100d.txt
 
 For more detailed usage, please refer to the [SynLSTM-for-NER project](https://github.com/xuuuluuu/SynLSTM-for-NER?tab=readme-ov-file#better-feature-integration-for-named-entity-recognition)
 
