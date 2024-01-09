@@ -3,7 +3,7 @@ Pytorch implementation of Attention and Edge-Label Guided Graph Convolutional Ne
 
 EMNLP 2022 [Edge-Label Guided Graph Convolutional Networks for Named Entity Recognition](https://aclanthology.org/2022.emnlp-main.436/)
 # Model Architecture
-![](https://github.com/Chandler-top/aelgcn-NER/edit/main/model-arch.jpg)
+![](https://github.com/Chandler-top/aelgcn-NER/blob/main/Model%20Arch.jpg)
 
 # Requirement
 Python 3.7
