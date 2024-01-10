@@ -237,7 +237,7 @@ class NNCRF(nn.Module):
             layer_list = []
             src_mask = (word_seq_tensor != 0).unsqueeze(-2)
             for _layer in range(len(self.gcn_layers)):
-                if _layer % (self.num_block) + 1 == 0: # EANJU and NAEU 0-th layer, 3-th layer, 6-th layer....
+                if _layer % (self.num_block + 1) == 0: # EANJU and NAEU 0-th layer, 3-th layer, 6-th layer....
                     gcn_outputs, weight_adj = self.gcn_layers[_layer](weight_adj, gcn_outputs, adj_matrixs[permIdx])# [batch, seq, dim]
                     gcn_outputs = self.gcn_drop(gcn_outputs)
                     weight_adj = self.gcn_drop(weight_adj)
