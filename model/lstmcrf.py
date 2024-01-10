@@ -121,13 +121,13 @@ class NNCRF(nn.Module):
             self.gcn_drop = nn.Dropout(config.gcn_dropout)
             final_hidden_dim = config.gcn_dim
             self.num_att_heads = config.num_att_heads
-            # self.num_blocks = config.num_blocks
+            self.num_blocks = config.num_blocks
             for i in range(config.num_gcn_layers):
                 # EANJU and NAEU
                 self.gcn_layers.append(
                     GraphConvLayer(self.device, self.gcn_dim, config.dep_emb_size, self.pooling)).to(self.device)
                 # AGGCN-Densely Connected Layer
-                for j in range(config.num_blocks):
+                for j in range(self.num_blocks):
                     self.gcn_layers.append(
                         MultiGraphConvLayer(config.gcn_dim, config.num_sublayers, self.num_att_heads)).to(self.device)
             # AGGCN- Attention Guided Layer
@@ -237,7 +237,7 @@ class NNCRF(nn.Module):
             layer_list = []
             src_mask = (word_seq_tensor != 0).unsqueeze(-2)
             for _layer in range(len(self.gcn_layers)):
-                if _layer % 3 == 0: # EANJU and NAEU 0-th layer, 3-th layer, 6-th layer....
+                if _layer % (self.num_block) + 1 == 0: # EANJU and NAEU 0-th layer, 3-th layer, 6-th layer....
                     gcn_outputs, weight_adj = self.gcn_layers[_layer](weight_adj, gcn_outputs, adj_matrixs[permIdx])# [batch, seq, dim]
                     gcn_outputs = self.gcn_drop(gcn_outputs)
                     weight_adj = self.gcn_drop(weight_adj)
