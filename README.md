@@ -17,13 +17,13 @@ CUDA 10.1, 10.2
 # Performance
 
 | Model  | Dataset | F1 |
-| ------------- | ------------- |
+| ------------- | ------------- |------------- |
 | Syn-LSTM-CRF  | Chinese  |  78.51  |
 | BiLSTM-AELGCN-CRF  | Chinese  | 79.44 |
 | Our AELGNC Implementation  | Chinese  | 79.04 |
 
 | Model  | Dataset | F1 |
-| ------------- | ------------- |
+| ------------- | ------------- |------------- |
 | Syn-LSTM-CRF  | Onotnotes  |   89.04  |
 | BiLSTM-AELGCN-CRF  | Onotnotes  |  89.25 |
 | Our AELGNC Implementation  | Onotnotes  | 89.07 |
